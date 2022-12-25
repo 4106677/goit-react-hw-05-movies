@@ -6,6 +6,7 @@ const MoviesList = ({ movies, location }) => {
   // console.log(movies);
   return (
     <ul>
+      <h2>header</h2>
       {movies.map(({ id, title, poster_path, release_date }) => (
         <li key={id}>
           <Link to={`/movies/${id}`} state={{ from: location }}>

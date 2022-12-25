@@ -50,3 +50,15 @@ export const getReviewsId = async movieId => {
 
   return data.results;
 };
+
+export const getMovQuery = async query => {
+  const { data } = await axios.get(`/search/movie`, {
+    params: {
+      api_key: API_KEY,
+      query,
+      page: 1,
+    },
+  });
+  console.log(data.results);
+  return data.results;
+};
