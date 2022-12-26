@@ -1,8 +1,14 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
+import { useLocation, useParams, Outlet } from 'react-router-dom';
 import { getMovId, IMAGE_URL } from 'services/Api';
-import { Container } from './MovieDetail.styled';
+import {
+  Container,
+  Image,
+  MainInfo,
+  Links,
+  BtnList,
+} from './MovieDetail.styled';
 
 const MovieDetail = () => {
   const { movieId } = useParams(null);
@@ -29,19 +35,20 @@ const MovieDetail = () => {
   }
 
   const backLinkHref = location.state?.from ?? '/';
+  // const back = String.fromCharCode(&#8592);
 
   return (
-    <>
-      <Container>
+    <Container>
+      <MainInfo>
         {error && <h1>{error}</h1>}
-        <img
+        <Image
           src={IMAGE_URL + movie.posterPath}
           alt="movie.title"
           height="350"
-        ></img>
+        ></Image>
 
         <ul>
-          <Link to={backLinkHref}>Go back</Link>
+          <Links to={backLinkHref}>&larr; Go back</Links>
           <li>
             <h3>
               {' '}
@@ -61,19 +68,19 @@ const MovieDetail = () => {
             <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
           </li>
         </ul>
-      </Container>
+      </MainInfo>
 
       <h3>Additional information</h3>
-      <ul>
+      <BtnList>
         <li>
-          <Link to="cast">Cast</Link>
+          <Links to="cast">Cast</Links>
         </li>
         <li>
-          <Link to={'reviews'}>Reviews</Link>
+          <Links to={'reviews'}>Reviews</Links>
         </li>
-      </ul>
+      </BtnList>
       <Outlet />
-    </>
+    </Container>
   );
 };
 

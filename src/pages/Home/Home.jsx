@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <main>
-      <h1>Trending today</h1>
+      <h1 style={{ textAlign: 'center' }}>Trending today</h1>
       {error && <p>{error.message}</p>}
 
       {movies?.length > 0 && <MoviesList movies={movies} location={location} />}

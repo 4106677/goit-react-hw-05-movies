@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 
+import { SearchForm, SearchBar, Input, SearchBtn } from './Searchbar.styled';
+
 const Searchbar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
@@ -7,10 +9,12 @@ const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="query" placeholder="Search movie" />
-      <button type="submit">Search</button>
-    </form>
+    <SearchBar>
+      <SearchForm onSubmit={handleSubmit}>
+        <Input type="text" name="query" placeholder="Search movie" />
+        <SearchBtn type="submit">Search</SearchBtn>
+      </SearchForm>
+    </SearchBar>
   );
 };
 

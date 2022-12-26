@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getCastId, IMAGE_URL } from 'services/Api';
+import { Container, Item, Poster, Description } from './Casts.styled';
 
 const Cast = () => {
   const { movieId } = useParams();
@@ -26,19 +27,19 @@ const Cast = () => {
   return (
     <>
       {actors.length > 0 && (
-        <ul>
+        <Container>
           {actors.map(({ id, name, profile_path, character }) => (
-            <li key={id}>
-              <img src={IMAGE_URL + profile_path} alt={name} width={200} />
-              <div>
+            <Item key={id}>
+              <Poster src={IMAGE_URL + profile_path} alt={name} width={200} />
+              <Description>
                 <b>{name}</b>
                 <p>
                   <b>Character:</b> {character}
                 </p>
-              </div>
-            </li>
+              </Description>
+            </Item>
           ))}
-        </ul>
+        </Container>
       )}
       {actors.length === 0 && !error && <p>Not actors</p>}
     </>

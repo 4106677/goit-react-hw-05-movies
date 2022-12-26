@@ -1,12 +1,13 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Layout } from './Layout/Layout';
+import { Layout } from '../Layout/Layout';
+import { GlobalStyle } from './GlobalStyles';
 
-const Home = lazy(() => import('../pages/Home/Home'));
-const Movies = lazy(() => import('../pages/Movies/Movies'));
-const Reviews = lazy(() => import('./Reviews/Reviews'));
-const Cast = lazy(() => import('./Cast/Cast'));
-const MovieDetail = lazy(() => import('../pages/MovieDetail/MovieDetail'));
+const Home = lazy(() => import('../../pages/Home/Home'));
+const Movies = lazy(() => import('../../pages/Movies/Movies'));
+const Reviews = lazy(() => import('../Reviews/Reviews'));
+const Cast = lazy(() => import('../Cast/Cast'));
+const MovieDetail = lazy(() => import('../../pages/MovieDetail/MovieDetail'));
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           </Route>
         </Route>
       </Routes>
+      <GlobalStyle />
     </>
   );
 };
