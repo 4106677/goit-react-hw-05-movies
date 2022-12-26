@@ -2,7 +2,7 @@
 // import RequestError from 'components/RequestError';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getCastId, getReviewsId, IMAGE_URL } from 'services/Api';
+import { getReviewsId } from 'services/Api';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -24,7 +24,7 @@ const Reviews = () => {
 
   return (
     <>
-      {reviews?.length > 0 && (
+      {reviews.length > 0 && (
         <ul>
           {reviews.map(({ id, author, content }) => (
             <li key={id}>

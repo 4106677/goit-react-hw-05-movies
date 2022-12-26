@@ -28,6 +28,8 @@ const MovieDetail = () => {
     return null;
   }
 
+  const backLinkHref = location.state?.from ?? '/';
+
   return (
     <>
       <Container>
@@ -38,6 +40,7 @@ const MovieDetail = () => {
         ></img>
 
         <ul>
+          <Link to={backLinkHref}>Go back</Link>
           <li>
             <h3>
               {' '}

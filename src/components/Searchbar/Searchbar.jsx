@@ -1,6 +1,6 @@
-import { BsSearch } from 'react-icons/bs';
+import PropTypes from 'prop-types';
 
-export const Searchbar = ({ onSubmit, value }) => {
+const Searchbar = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit(e.target.elements.query.value);
@@ -8,16 +8,14 @@ export const Searchbar = ({ onSubmit, value }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="query"
-        defaultValue={value}
-        placeholder="Enter the title of the movie."
-      />
-      <button type="submit">
-        <BsSearch />
-        Search
-      </button>
+      <input type="text" name="query" placeholder="Search movie" />
+      <button type="submit">Search</button>
     </form>
   );
 };
+
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+
+export default Searchbar;

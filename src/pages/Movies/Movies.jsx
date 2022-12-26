@@ -1,4 +1,4 @@
-import { Searchbar } from 'components/Searchbar/Searchbar';
+import Searchbar from 'components/Searchbar/Searchbar';
 import MoviesList from 'pages/MoviesList/MoviesList';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -18,18 +18,15 @@ const Movies = () => {
       return;
     }
 
-    if (searchQuery.trim() === '' || searchQuery === '') {
-      return;
-    }
-
     getMovQuery(searchQuery.trim())
       .then(result => {
         setSearchMov(result);
         setErr(null);
       })
-      .catch(err => {
+      .catch(error => {
         setSearchMov([]);
-        setErr(err);
+        setErr(error);
+        alert(error.message);
       });
   }, [searchQuery]);
 
@@ -39,7 +36,7 @@ const Movies = () => {
 
   return (
     <>
-      <Searchbar onSubmit={onSubmit} value={searchQuery} />
+      <Searchbar onSubmit={onSubmit} />
 
       {searchMov?.length > 0 && (
         <MoviesList movies={searchMov} location={location} />

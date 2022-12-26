@@ -13,7 +13,7 @@ const Cast = () => {
     getCastId(movieId)
       .then(actors => {
         setActors(actors);
-        console.log(actors);
+
         setError(null);
       })
       .catch(error => {
@@ -25,9 +25,7 @@ const Cast = () => {
 
   return (
     <>
-      {/* {error && <RequestError />} */}
-
-      {actors?.length > 0 && (
+      {actors.length > 0 && (
         <ul>
           {actors.map(({ id, name, profile_path, character }) => (
             <li key={id}>

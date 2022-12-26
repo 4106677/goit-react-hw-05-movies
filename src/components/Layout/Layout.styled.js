@@ -10,7 +10,7 @@ export const Header = styled.header`
   flex-direction: row;
   align-items: center;
 
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   padding: 10px;
 `;

@@ -59,6 +59,6 @@ export const getMovQuery = async query => {
       page: 1,
     },
   });
-  console.log(data.results);
+
   return data.results;
 };
