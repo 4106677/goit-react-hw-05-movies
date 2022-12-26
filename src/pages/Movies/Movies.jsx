@@ -26,7 +26,7 @@ const Movies = () => {
       .catch(error => {
         setSearchMov([]);
         setErr(error);
-        alert(error.message);
+        // alert(error.message);
       });
   }, [searchQuery]);
 
@@ -37,7 +37,7 @@ const Movies = () => {
   return (
     <>
       <Searchbar onSubmit={onSubmit} />
-
+      {err && <h1>{err}</h1>}
       {searchMov?.length > 0 && (
         <MoviesList movies={searchMov} location={location} />
       )}
