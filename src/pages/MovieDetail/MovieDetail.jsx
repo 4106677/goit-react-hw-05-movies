@@ -33,6 +33,7 @@ const MovieDetail = () => {
   return (
     <>
       <Container>
+        {error && <h1>{error}</h1>}
         <img
           src={IMAGE_URL + movie.posterPath}
           alt="movie.title"
